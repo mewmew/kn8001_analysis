@@ -82,8 +82,12 @@ def segment_islet1_stardist(islet1, dapi_mask):
 
 # Segment neurites using GaussianBlur on X ex. TUBB3 staining
 def segment_neurites(tubb3):
-	blurred = cv2.GaussianBlur(tubb3, (5, 5), 0)
-	_, binary = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+	nbytes = tubb3.dtype.itemsize # number of bytes used by channel (uint8 -> 1, uint16 -> 2)
+	bps = nbytes*8                # bps
+	max_val = 2**bps - 1          # 255 for 8-bit and 65535 for 16-bit channels.
+	_, tubb3_trunc = cv2.threshold(tubb3, int(max_val*0.05), max_val, cv2.THRESH_TOZERO) # treat darkest 5% of colour range as fully black pixels.
+	blurred = cv2.GaussianBlur(tubb3_trunc, (5, 5), 0)
+	_, binary = cv2.threshold(blurred, 0, max_val, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 	return binary
 
 # Compute measurements
