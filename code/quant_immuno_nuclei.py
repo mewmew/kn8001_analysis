@@ -40,7 +40,12 @@ def enhance_contrast(image):
 	Improve visibility of structures in the image using CLAHE.
 	"""
 	clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(2, 2))
-	enhanced = clahe.apply(image.astype(np.uint8))
+	if image.dtype.itemsize == 1:
+		enhanced = clahe.apply(image.astype(np.uint8))
+	elif image.dtype.itemsize == 2:
+		enhanced = clahe.apply(image.astype(np.uint16))
+	else:
+		return image
 	return enhanced
 
 # Segment nuclei using StarDist

@@ -31,7 +31,12 @@ def display_raw_channels(dapi, islet1, tubb3):
 # Enhance contrast
 def enhance_contrast(image): #design in order to improve visibility of detils
 	clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-	enhanced = clahe.apply(image.astype(np.uint8))
+	if image.dtype.itemsize == 1:
+		enhanced = clahe.apply(image.astype(np.uint8))
+	elif image.dtype.itemsize == 2:
+		enhanced = clahe.apply(image.astype(np.uint16))
+	else:
+		return image
 	return enhanced
 
 # Segment nuclei using StarDist
