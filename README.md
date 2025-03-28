@@ -7,3 +7,7 @@ Quantification of nuclei, immunostaining markers and neurite area using [StarDis
 See [code/quant_immuno_nuclei.py](code/quant_immuno_nuclei.py) for quantification of nuclei and immunostaining markers.
 
 See [code/quant_immuno_neurite.py](code/quant_immuno_neurite.py) for quantification of neurite area.
+
+## Data
+
+See [data](https://osf.io/8gw5c/files/osfstorage) for CZI and TIFF immunostaining images used for quantification.
