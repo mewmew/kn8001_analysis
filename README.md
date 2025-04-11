@@ -4,6 +4,8 @@ Quantification of nuclei, immunostaining markers and neurite area using [StarDis
 
 ## Code
 
+Code developed by [Irene Mei](https://github.com/irenemei).
+
 See [code/quant_immuno_nuclei.py](code/quant_immuno_nuclei.py) for quantification of nuclei and immunostaining markers.
 
 See [code/quant_immuno_neurite.py](code/quant_immuno_neurite.py) for quantification of neurite area.

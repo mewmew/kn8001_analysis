@@ -1,3 +1,5 @@
+# Code developed by Irene Mei (https://github.com/irenemei)
+
 import cv2
 import numpy as np
 import tifffile as tiff
