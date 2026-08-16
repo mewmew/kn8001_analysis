@@ -12,4 +12,4 @@ See [code/quant_immuno_neurite.py](code/quant_immuno_neurite.py) for quantificat
 
 ## Data
 
-See [data](https://osf.io/8gw5c/files/osfstorage) for CZI and TIFF immunostaining images used for quantification.
+See [data](https://zenodo.org/records/21969556) for CZI and TIFF immunostaining images used for quantification.
